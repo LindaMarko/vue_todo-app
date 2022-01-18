@@ -1,7 +1,12 @@
 <template>
   <div class="list">
     <ul>
-      <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
+      <TodoItem
+        v-for="element in todos"
+        :key="element.id"
+        :todo="element"
+        @delete="$emit('delete', element)"
+      />
     </ul>
   </div>
 </template>
@@ -17,5 +22,6 @@ export default {
 <style scoped>
 .list {
   width: 100%;
+  margin-top: 1rem;
 }
 </style>

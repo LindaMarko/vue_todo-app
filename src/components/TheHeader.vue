@@ -22,8 +22,13 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 1rem 0 4rem 0;
 }
 h1 {
   text-transform: uppercase;
+  font-size: 2.5rem;
+}
+p {
+  font-size: 0.8rem;
 }
 </style>

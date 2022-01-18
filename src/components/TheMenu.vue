@@ -1,11 +1,11 @@
 <template>
   <div class="menu">
     <div class="fade-layer"></div>
-    <img :src="closeIcon" class="close-icon" />
+    <img :src="closeIcon" class="close-icon" @click="$emit('close')" />
     <nav>
       <div v-for="item in menu" :key="item" class="options">
         <img :src="item.icon" />
-        <p>{{ item.text }}</p>
+        <a>{{ item.text }}</a>
       </div>
     </nav>
   </div>
@@ -30,16 +30,20 @@ export default {
 
 <style scoped>
 .menu {
+  position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  width: 80%;
-  /* background-color: lightblue; */
-  display: none;
+  width: 90%;
+  background-color: lightblue;
 }
 
 .close-icon {
   align-self: flex-end;
   background-color: lightblue;
+}
+.options {
+  display: flex;
 }
 </style>
