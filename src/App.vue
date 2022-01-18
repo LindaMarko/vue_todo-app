@@ -1,28 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TheMenu />
+    <TheHeader />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TheMenu from "./components/TheMenu.vue"
+import TheHeader from "./components/TheHeader.vue"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
+    TheHeader,
+    TheMenu,
+  },
 }
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Titillium Web", sans-serif;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 30rem;
+  margin: 2rem;
+  padding: 1rem;
+  box-shadow: 0px 0px 27px -18px rgba(0, 0, 0, 0.87);
 }
 </style>
