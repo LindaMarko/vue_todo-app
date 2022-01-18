@@ -1,6 +1,5 @@
 <template>
   <header>
-    <TheNav />
     <img :src="logo" alt="logo" />
     <h1>Teflon</h1>
     <p>När det inte fastnar</p>
