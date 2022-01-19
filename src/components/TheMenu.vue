@@ -1,16 +1,15 @@
 <template>
-  <div class="menu">
-    <!-- <div class="fade-layer" :class="{ show }"></div> -->
+  <div class="menu" @click="$emit('close')">
     <img src="../assets/close.svg" class="close-icon" @click="$emit('close')" />
     <nav>
       <div
         v-for="item in menu"
-        :key="item"
+        :key="item.id"
         :menuItem="item"
-        @click="$emit('close')"
         class="options"
+        @click="$emit('menuFunctions', item)"
       >
-        <img :src="item.icon" @click="$emit('menuFunctions', item)" />
+        <img :src="item.icon" />
         <a>{{ item.text }}</a>
       </div>
     </nav>
@@ -60,10 +59,14 @@ nav {
 
   .options {
     display: flex;
-    margin: 1rem;
+    margin: 0.8rem;
 
     img {
       margin-right: 0.5rem;
+    }
+    a {
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
 }

@@ -1,7 +1,14 @@
 <template>
   <li class="todo-item" :class="{ done: todo.done }">
-    <input type="checkbox" class="checkbox" @input="$emit('check', element)" />
-    {{ todo.content }}
+    <span
+      ><input
+        type="checkbox"
+        class="checkbox"
+        :checked="todo.done"
+        @input="$emit('check', element)"
+      />
+      <p>{{ todo.content }}</p></span
+    >
     <img
       src="../assets/delete.svg"
       @click="$emit('delete', element)"
@@ -13,16 +20,18 @@
 <script>
 export default {
   props: ["todo"],
+  data() {
+    return { element: {} }
+  },
 }
 </script>
 
 <style scoped lang="scss">
 .todo-item {
   display: flex;
-
+  justify-content: space-between;
   align-items: center;
-  // width: 100%;
-  padding: 1.2rem;
+  padding: 1rem;
   margin-bottom: 0.5rem;
   background-color: lightblue;
   list-style: none;
@@ -44,8 +53,9 @@ export default {
     width: 15px;
     height: 15px;
   }
-  img {
-    align-self: flex-end;
+  span {
+    display: flex;
+    align-items: center;
   }
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <div class="fade-layer" :class="{ show: showMenu }"></div>
+    <div
+      class="fade-layer"
+      :class="{ show: showMenu }"
+      @click="closeMenu"
+    ></div>
     <img
       src="./assets/menu.svg"
       class="menu-icon"
@@ -12,7 +16,6 @@
       v-if="showMenu"
       @close="closeMenu"
       @menuFunctions="hideOrDelete"
-      :show="showMenu"
     />
     <TheHeader />
     <p>
@@ -53,20 +56,10 @@ export default {
   },
   data() {
     return {
+      todoContent: "",
       showMenu: false,
       showDone: true,
-      todos: [
-        {
-          id: 1,
-          content: "Köp mjölk",
-          done: false,
-        },
-        {
-          id: 2,
-          content: "Köp bröd",
-          done: false,
-        },
-      ],
+      todos: [],
       menu: [
         {
           id: "hideDone",
@@ -97,6 +90,12 @@ export default {
     todosLeft() {
       return this.todos.filter((todo) => !todo.done).length
     },
+  },
+  created() {
+    let persistedData = localStorage.getItem("todoData")
+    if (persistedData) {
+      this.todos = JSON.parse(persistedData)
+    }
   },
   methods: {
     closeMenu() {
@@ -167,7 +166,7 @@ img {
 input,
 button {
   width: 100%;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 input {
   margin-top: 1rem;
