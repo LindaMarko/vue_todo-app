@@ -6,6 +6,7 @@
         :key="element.id"
         :todo="element"
         @delete="$emit('delete', element)"
+        @check="$emit('check', element)"
       />
     </ul>
   </div>
@@ -19,7 +20,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .list {
   width: 100%;
   margin-top: 1rem;
